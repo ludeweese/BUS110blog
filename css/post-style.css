@@ -1,0 +1,82 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* subtle light background for contrast */
+}
+
+/* Header and footer with gradient and animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header, footer {
+  background: linear-gradient(135deg, #fdc7d5, #fe7d67, #fc5b9e);
+  background-size: 600% 600%;
+  color: #f0f0f0;
+   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 1em 0;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Circular header image */
+header img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Main content styling */
+main {
+    padding: 2em;
+    display: flex;
+    justify-content: center; /* center the article */
+}
+
+/* Article container */
+article {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Cover image at top of post */
+.cover-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Post title and text */
+article h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #09361c; /* dark green for readability */
+    font-weight: bold;
+}
+
+article p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #333; /* standard text color */
+}
+
+/* Footer text */
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
