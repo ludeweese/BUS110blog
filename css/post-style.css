@@ -113,9 +113,10 @@ footer p {
     font-size: 80px;
     color: #054127;
     position: absolute;
-    top: -20px;
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
+    line-height: 1;
 }
 
 /* Quote text */
