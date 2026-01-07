@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; /* subtle light background for contrast */
+    background-color: #82b787ed; /* subtle light background for contrast */
 }
 
 /* Header and footer with gradient and animation */
@@ -32,6 +32,8 @@ header img {
     object-fit: cover;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: 4px solid white; /* white stroke around the image */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* optional subtle shadow */
 }
 
 /* Main content styling */
@@ -75,6 +77,17 @@ article p {
     color: #282727; 
 }
 
+/* Lists inside article */
+article ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: #333; /* same color as body text */
+}
+
+article ul li {
+    margin-bottom: 10px; /* optional spacing between items */
+    color: #333;          /* ensures list items match body text */
+}
 /* Footer text */
 footer p {
     margin: 0;
