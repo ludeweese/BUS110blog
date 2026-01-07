@@ -147,3 +147,80 @@ footer p {
     font-weight: bold;
     color: #09361c;
 }
+
+/* =======================
+   Responsive Design
+   ======================= */
+
+/* Tablet: up to 1024px */
+@media (max-width: 1024px) {
+    main {
+        padding: 1.5em;
+    }
+
+    article {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    article h2 {
+        font-size: 1.6rem;
+    }
+
+    .cover-image {
+        max-height: 300px;
+    }
+
+    .quote-box {
+        max-width: 500px;
+        padding: 25px 15px;
+    }
+
+    .quote-mark {
+        font-size: 60px;
+    }
+
+    .quote-author img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+    main {
+        padding: 1em;
+    }
+
+    article {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    article h2 {
+        font-size: 1.4rem;
+    }
+
+    article p, article ul li, .quote-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .cover-image {
+        max-height: 200px;
+    }
+
+    .quote-box {
+        padding: 20px 10px;
+        max-width: 95%;
+    }
+
+    .quote-mark {
+        font-size: 50px;
+    }
+
+    .quote-author img {
+        width: 50px;
+        height: 50px;
+    }
+}
