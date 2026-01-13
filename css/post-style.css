@@ -235,3 +235,17 @@ footer p {
     border-radius: 0;      /* no rounding; remove if you accidentally added */
 }
 
+/* Centered medium audio player */
+.medium-centered-audio {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* space above and below */
+}
+
+.medium-centered-audio audio {
+    width: 100%;
+    max-width: 400px; /* medium size */
+    border-radius: 8px; /* optional rounded corners */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* subtle shadow */
+}
+
