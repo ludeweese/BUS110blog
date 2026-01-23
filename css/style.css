@@ -126,3 +126,49 @@ footer p {
         font-size: 1.5rem;
     }
 }
+
+
+/* =========================
+   Quote Images - Final Fix
+========================= */
+.quote-img {
+    width: 100%;           /* Container takes full width of white box */
+    text-align: center;    /* Centers the image inside the container */
+    margin: 30px 0;        /* Space above and below */
+    display: block;
+}
+
+.quote-img img {
+    width: 100%;           /* Responsive */
+    max-width: 400px;      /* Makes it smaller than the white box */
+    height: auto;          /* Maintains ratio */
+    display: inline-block; /* Works with text-align: center */
+    border-radius: 8px;    /* Optional pretty corners */
+}
+
+/* Also ensure the white article handles overflow */
+article {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box; /* Crucial for keeping everything inside */
+}
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .quote-img img {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    .quote-img img {
+        max-width: 80%;
+    }
+}
+
