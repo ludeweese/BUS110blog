@@ -2,7 +2,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #7d6303, #f4f7b8);
+    background: linear-gradient(to bottom, #067852, #90c6b4, #fad0dd);
     font-family: 'Playfair Display', serif;
     overflow-x: hidden;
     position: relative;
@@ -39,13 +39,12 @@ body {
     top: 80px;
 }
 
-/* More spaced colors for mobile */
 .b1 { left: 5%; background: #ff006e; }
 .b2 { left: 25%; background: #ffbe0b; }
 .b3 { left: 45%; background: #3a86ff; }
 .b4 { left: 65%; background: #8338ec; }
 .b5 { left: 85%; background: #fb5607; }
-.b6 { left: 50%; background: #06d6a0; } /* optional center balloon */
+.b6 { left: 50%; background: #06d6a0; }
 
 @keyframes floatUp {
     0% { transform: translateY(0); }
@@ -79,7 +78,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Audio container */
+/* Audio section */
 .audio-container {
     text-align: center;
     margin: 25px 0;
@@ -88,27 +87,20 @@ body {
 .audio-message {
     font-size: 2rem;
     font-weight: bold;
-     color: #ffffff;                           /* white text */
-    text-shadow: 2px 2px 4px rgba(50,50,50,0.7); /* dark gray shadow for readability */
-    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(50,50,50,0.7);
     margin-bottom: 12px;
 }
 
-#audio-player {
-    width: 90%;
-    max-width: 400px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* Optional: style audio player for mobile */
-#audio-player, #birthday-song {
+#birthday-song {
     width: 90%;
     max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     outline: none;
 }
 
-/* Pages */
+/* Page */
 .page {
     width: 100%;
     background: linear-gradient(to bottom right, #fffdf8, #f5efe6);
@@ -150,23 +142,23 @@ h1 {
 .message p {
     margin: 0;
     line-height: 1.6;
-    font-size: 1.2rem; /* bigger message text */
+    font-size: 1.2rem;
     color: #4a3f35;
 }
 
-/* SIGNATURE smaller than message */
-.signature {
+/* SIGNATURE — Dark Purple (fixed) */
+.message .signature {
     margin-top: 6px;
     text-align: right;
     font-family: 'Dancing Script', cursive;
-    font-size: 1rem; /* smaller than message */
-    color: #d63384;
+    font-size: 1rem;
+    color: #3c096c;   /* deep elegant purple */
 }
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
     h1 { font-size: 1.8rem; }
     .photo-container img { width: 140px; height: 140px; }
-    .message p { font-size: 1.3rem; } /* bigger for readability on mobile */
-    .signature { font-size: 1.1rem; }
+    .message p { font-size: 1.3rem; }
+    .message .signature { font-size: 1.1rem; }
 }
