@@ -1,13 +1,11 @@
 /* Background */
 body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(to bottom, #fff1f2, #fde2e4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #e59bb3, #fde2e4);
     font-family: 'Playfair Display', serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* BALÕES */
@@ -15,7 +13,6 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     pointer-events: none;
     top: 0;
     left: 0;
@@ -24,25 +21,25 @@ body {
 
 .balloon {
     position: absolute;
-    bottom: -150px;
-    width: 70px;
-    height: 90px;
+    bottom: -100px;
+    width: 60px;
+    height: 80px;
     border-radius: 50% 50% 45% 45%;
     opacity: 0.9;
-    animation: floatUp 18s infinite ease-in;
+    animation: floatUp 12s infinite ease-in;
 }
 
 .balloon::after {
     content: "";
     position: absolute;
     width: 2px;
-    height: 70px;
+    height: 60px;
     background: #444;
     left: 50%;
-    top: 90px;
+    top: 80px;
 }
 
-/* Cores vibrantes */
+/* Colors */
 .b1 { left: 5%; background: #ff006e; }
 .b2 { left: 20%; background: #ffbe0b; }
 .b3 { left: 40%; background: #3a86ff; }
@@ -52,58 +49,19 @@ body {
 
 @keyframes floatUp {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-120vh); }
+    50% { transform: translateY(-50vh); }
+    100% { transform: translateY(0); }
 }
 
-/* BOOK */
+/* BOOK container */
 .book {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    width: 1200px;
-    height: 820px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    max-width: 95%;
+    margin: 20px auto;
     z-index: 2;
-}
-
-/* Pages */
-.page {
-    width: 50%;
-    background: linear-gradient(to bottom right, #fffdf8, #f5efe6);
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.08);
-    padding: 70px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    position: relative;
-}
-
-.left-page {
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-.right-page {
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-
-/* Depth effect */
-.page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 35px;
-    background: linear-gradient(to right, rgba(0,0,0,0.08), transparent);
-}
-
-.left-page::before { right: 0; }
-.right-page::before { left: 0; }
-
-/* Spine */
-.spine {
-    width: 30px;
-    background: linear-gradient(to right, #c8b8a6, #b8a58f, #c8b8a6);
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
 }
 
 /* PHOTO */
@@ -113,56 +71,73 @@ body {
 }
 
 .photo-container img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     border-radius: 50%;
-    border: 6px solid #ffffff;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Content width */
+/* Pages */
+.page {
+    width: 100%;
+    background: linear-gradient(to bottom right, #fffdf8, #f5efe6);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 35px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+/* Page content */
 .page-content {
-    max-width: 460px;
+    max-width: 600px;
     margin: auto;
 }
 
 /* Title */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 35px;
-    color: #7d6b5d;
+    margin-bottom: 20px;
 }
 
 /* Messages */
-.message {
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(180,160,140,0.3);
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.message:last-child {
-    border-bottom: none;
+.message {
+    background: #fff6e8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #ff6666;
 }
 
 .message p {
+    margin: 0;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 1.2rem; /* bigger message text */
     color: #4a3f35;
 }
 
-/* SIGNATURE */
+/* SIGNATURE smaller than message */
 .signature {
-    margin-top: 8px;
+    margin-top: 6px;
     text-align: right;
     font-family: 'Dancing Script', cursive;
-    font-size: 1.6rem;
+    font-size: 1rem; /* smaller than message */
     color: #d63384;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
+    .photo-container img { width: 140px; height: 140px; }
+    .message p { font-size: 1.3rem; } /* bigger for readability on mobile */
+    .signature { font-size: 1.1rem; }
 }
