@@ -7,12 +7,6 @@
   <link rel="stylesheet" href="dani.style.css">
 </head>
 <body>
-    
-    <!-- Background audio -->
-<audio id="birthday-song" controls autoplay loop>
-  <source src="/Dani/images/dani1.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-</audio>
 
   <!-- Balloons container -->
   <div class="balloons">
@@ -24,22 +18,31 @@
     <div class="balloon b6"></div>
   </div>
 
-  <!-- Book -->
+  <!-- Book container -->
   <div class="book">
 
     <!-- Danni photo -->
     <div class="photo-container">
-      <img src="/Dani/images/dani.jpg" alt="Foto de Dani">
+      <img src="./images/dani.jpg" alt="Foto de Dani">
     </div>
 
-    <!-- Page -->
+    <!-- Special message and song for Dani -->
+    <div class="audio-container">
+      <p class="audio-message">Dani, Esta canção é especialmente para você. 🎵</p>
+      <audio id="birthday-song" controls loop>
+        <source src="/audio/Querida Dani, tua vida é luz,Com teu sor (2).mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+    </div>
+
+    <!-- Page with messages -->
     <div class="page">
       <div class="page-content">
         <h1>Feliz Aniversário, Dani!</h1>
         <div class="messages">
           <div class="message">
-            <p>Querida Dani, tua vida é luz. Com teu sorriso, o mundo reluz.</p>
-            <p class="signature">- Luna Costa</p>
+            <p>Olá Dani, Muitas Saudades de você. Desejo no seu novo ciclo, muitas bençãos e vitórias. Que você continue com sua luz, ajudando mais e mais mulheres.</p>
+            <p class="signature">- Edna Madoglio</p>
           </div>
           <div class="message">
             <p>Tua humanidade toca o coração, transforma dor em compreensão.</p>
@@ -61,6 +64,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 </body>

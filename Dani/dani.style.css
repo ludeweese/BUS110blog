@@ -2,7 +2,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(to bottom, #e59bb3, #fde2e4);
+    background: linear-gradient(to bottom, #7d6303, #f4f7b8);
     font-family: 'Playfair Display', serif;
     overflow-x: hidden;
     position: relative;
@@ -39,13 +39,13 @@ body {
     top: 80px;
 }
 
-/* Colors */
+/* More spaced colors for mobile */
 .b1 { left: 5%; background: #ff006e; }
-.b2 { left: 20%; background: #ffbe0b; }
-.b3 { left: 40%; background: #3a86ff; }
-.b4 { left: 60%; background: #8338ec; }
-.b5 { left: 75%; background: #fb5607; }
-.b6 { left: 90%; background: #06d6a0; }
+.b2 { left: 25%; background: #ffbe0b; }
+.b3 { left: 45%; background: #3a86ff; }
+.b4 { left: 65%; background: #8338ec; }
+.b5 { left: 85%; background: #fb5607; }
+.b6 { left: 50%; background: #06d6a0; } /* optional center balloon */
 
 @keyframes floatUp {
     0% { transform: translateY(0); }
@@ -77,6 +77,35 @@ body {
     border-radius: 50%;
     border: 5px solid #ffffff;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Audio container */
+.audio-container {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.audio-message {
+    font-size: 2rem;
+    font-weight: bold;
+     color: #ffffff;                           /* white text */
+    text-shadow: 2px 2px 4px rgba(50,50,50,0.7); /* dark gray shadow for readability */
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+#audio-player {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Optional: style audio player for mobile */
+#audio-player, #birthday-song {
+    width: 90%;
+    max-width: 300px;
+    outline: none;
 }
 
 /* Pages */
