@@ -1,4 +1,6 @@
-/* Background */
+/* =========================
+   BACKGROUND
+========================= */
 body {
     margin: 0;
     min-height: 100vh;
@@ -8,7 +10,9 @@ body {
     position: relative;
 }
 
-/* BALÕES */
+/* =========================
+   BALLOONS
+========================= */
 .balloons {
     position: fixed;
     width: 100%;
@@ -16,17 +20,17 @@ body {
     pointer-events: none;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: 5; /* ABOVE book */
 }
 
 .balloon {
     position: absolute;
-    bottom: -100px;
+    bottom: -120px;
     width: 60px;
     height: 80px;
     border-radius: 50% 50% 45% 45%;
-    opacity: 0.9;
-    animation: floatUp 12s infinite ease-in;
+    opacity: 0.85;
+    animation: floatUp 14s infinite ease-in;
 }
 
 .balloon::after {
@@ -40,19 +44,25 @@ body {
 }
 
 .b1 { left: 5%; background: #ff006e; }
-.b2 { left: 25%; background: #ffbe0b; }
-.b3 { left: 45%; background: #3a86ff; }
-.b4 { left: 65%; background: #8338ec; }
-.b5 { left: 85%; background: #fb5607; }
+.b2 { left: 20%; background: #ffbe0b; }
+.b3 { left: 40%; background: #3a86ff; }
+.b4 { left: 60%; background: #8338ec; }
+.b5 { left: 80%; background: #fb5607; }
 .b6 { left: 50%; background: #06d6a0; }
 
 @keyframes floatUp {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-50vh); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-120vh);
+    }
+
 }
 
-/* BOOK container */
+/* =========================
+   BOOK CONTAINER
+========================= */
 .book {
     display: flex;
     flex-direction: column;
@@ -60,10 +70,12 @@ body {
     position: relative;
     max-width: 95%;
     margin: 20px auto;
-    z-index: 2;
+    z-index: 1; /* below balloons */
 }
 
-/* PHOTO */
+/* =========================
+   PHOTO
+========================= */
 .photo-container {
     text-align: center;
     margin-bottom: 25px;
@@ -75,10 +87,12 @@ body {
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid #ffffff;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
-/* Audio section */
+/* =========================
+   AUDIO SECTION
+========================= */
 .audio-container {
     text-align: center;
     margin: 25px 0;
@@ -88,23 +102,25 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(50,50,50,0.7);
+    text-shadow: 2px 2px 5px rgba(40,40,40,0.8);
     margin-bottom: 12px;
 }
 
 #birthday-song {
     width: 90%;
-    max-width: 300px;
+    max-width: 320px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     outline: none;
 }
 
-/* Page */
+/* =========================
+   PAGE
+========================= */
 .page {
     width: 100%;
     background: linear-gradient(to bottom right, #fffdf8, #f5efe6);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     padding: 35px;
     border-radius: 15px;
     margin-bottom: 30px;
@@ -117,14 +133,18 @@ body {
     margin: auto;
 }
 
-/* Title */
+/* =========================
+   TITLE
+========================= */
 h1 {
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Messages */
+/* =========================
+   MESSAGES
+========================= */
 .messages {
     display: flex;
     flex-direction: column;
@@ -135,7 +155,7 @@ h1 {
     background: #fff6e8;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
     border-left: 5px solid #766202;
 }
 
@@ -146,19 +166,55 @@ h1 {
     color: #4a3f35;
 }
 
-/* SIGNATURE — Dark Purple (fixed) */
+/* =========================
+   SIGNATURE (Dark Purple)
+========================= */
 .message .signature {
-    margin-top: 6px;
+    margin-top: 8px;
     text-align: right;
     font-family: 'Dancing Script', cursive;
     font-size: 1rem;
-    color: #3c096c;   /* deep elegant purple */
+    color: #3c096c; /* deep elegant purple */
 }
 
-/* Responsive tweaks */
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
 @media (max-width: 600px) {
-    h1 { font-size: 1.8rem; }
-    .photo-container img { width: 140px; height: 140px; }
-    .message p { font-size: 1.3rem; }
-    .message .signature { font-size: 1.1rem; }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .photo-container img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .message p {
+        font-size: 1.3rem;
+    }
+
+    .message .signature {
+        font-size: 1.1rem;
+    }
+
+    .audio-message {
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 600px) {
+
+    .balloon {
+        width: 50px;
+        height: 70px;
+    }
+
+    .b1 { left: 3%; }
+    .b2 { left: 18%; }
+    .b3 { left: 33%; }
+    .b4 { left: 55%; }
+    .b5 { left: 75%; }
+    .b6 { left: 90%; }
+
 }
