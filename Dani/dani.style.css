@@ -218,3 +218,20 @@ h1 {
     .b6 { left: 90%; }
 
 }
+@media (max-width: 600px) {
+
+    /* Audio player */
+    #birthday-song {
+        width: 90%;           /* smaller than full width */
+        max-width: 420px;
+        transform: scale(1.2);
+        margin: 10px auto;    /* centers horizontally */
+        display: block;       /* needed for margin auto to work */
+    }
+
+    /* Audio container spacing */
+    .audio-container {
+        padding: 0 10px;      /* space from page edges */
+        text-align: center;
+    }
+}
