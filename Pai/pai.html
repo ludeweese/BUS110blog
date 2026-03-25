@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Aniversário Pai!</title>
+  <link rel="stylesheet" href="pai.style.css">
+  <style>
+    /* Lyrics styling */
+    #lyrics {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-top: 15px;
+      min-height: 2em;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Balloons container -->
+  <div class="balloons">
+    <div class="balloon b1"></div>
+    <div class="balloon b2"></div>
+    <div class="balloon b3"></div>
+    <div class="balloon b4"></div>
+    <div class="balloon b5"></div>
+    <div class="balloon b6"></div>
+  </div>
+
+  <!-- Book container -->
+  <div class="book">
+
+    <!-- Papai photo -->
+    <div class="photo-container">
+      <img src="./images/pai.jpg" alt="Foto do papai">
+    </div>
+
+    <!-- Special message and song for Papai -->
+    <div class="audio-container">
+      <p class="audio-message">Pai, esta canção é especialmente para você. 🎵</p>
+
+      <audio id="birthday-song" controls>
+        <source src="./audio/Pai-song.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+
+      <p id="lyrics"></p>
+    </div>
+
+    <!-- Page with messages -->
+    <div class="page">
+      <div class="page-content">
+        <h1>Feliz Aniversário, Pai!</h1>
+        <div class="messages">
+          <div class="message">
+            <p>Oi, Vovô Matias. Estamos com muitas saudades de você. Feliz Aniversário! Te amamos muito!</p>
+            <p class="signature">- Davi, Elias & Luna</p>
+          </div>
+          
+          <div class="message">
+            <p>Querido Pai, Feliz Aniversário! Que neste dia especial o senhor sinta todo o nosso amor e carinho. Que uma imensidão de bençãos sejam derramadas sobre o senhor ao longo desse novo ciclo, e que este novo ano seja leve, com muita saúde, alegrias e muitos sonhos realizados. Parabéns!</p>
+            <p class="signature">- Lucy DeWeese</p>
+          </div>
+          
+          <!-- Add more messages here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lyrics JavaScript -->
+  <script>
+    const audio = document.getElementById("birthday-song");
+  const lyrics = document.getElementById("lyrics");
+
+  const lines = [
+    { start: 12, end: 17, text: "Desde menino você aprendeu a cuidar," },
+    { start: 19, end: 25, text: "Quando muitos ainda estavam a brincar." },
+    { start: 26, end: 30, text: "Tomou sobre si a força e a missão" },
+    { start: 31, end: 36, text: "De proteger sua família com coragem e devoção" },
+    { start: 39, end: 44, text: "Cuidou dos irmãos, da mãe com carinho," },
+    { start: 45, end: 49, text: "Nunca deixou ninguém caminhar sozinho." },
+    { start: 51, end: 57, text: "E quando formou sua própria família também," },
+    { start: 58, end: 62, text: "Fez do amor o seu maior bem." },
+    { start: 63, end: 69, text: "Abriu mão de sonhos que queria viver," },
+    { start: 70, end: 75, text: "Como estudar e mais longe poder crescer." },
+    { start: 76, end: 81, text: "Mas com trabalho, coragem e dedicação," },
+    { start: 82, end: 92, text: "Construiu uma vida de honra e superação." },
+    { start: 93, end: 97, text: "Mesmo com medo, seguiu sem parar," },
+    { start: 98, end: 104, text: "Com fé no coração e vontade de lutar." },
+    { start: 105, end: 110, text: "Aprendeu com a vida, com cada desafio," },
+    { start: 111, end: 117, text: "E transformou dificuldade em caminho." },
+    { start: 118, end: 122, text: "Seu coração sempre pronto a servir," },
+    { start: 123, end: 132, text: "Nunca se cansa de ajudar e construir." },
+    { start: 135, end: 138, text: "Bondoso, carinhoso, cheio de valor," }, // 2:15 converted to 135
+    { start: 139, end: 146, text: "Um homem virtuoso, cheio de amor." }, // 2:19 converted to 139
+    { start: 147, end: 150, text: "Que bênção é ter um pai tão presente," }, // 2:27 converted to 147
+    { start: 151, end: 154, text: "Tão humano, tão forte, tão valente." }, // 2:31 converted to 151
+    { start: 155, end: 159, text: "Alguém que acolhe, que ensina a viver," }, 
+    { start: 160, end: 165, text: "Que nos mostra o que realmente importa ser." },
+    { start: 166, end: 168, text: "Nós somos tão gratos" },
+    { start: 169, end: 172, text: "Por termos um pai assim, tão raro." },
+    { start: 173, end: 177, text: "E hoje estamos cheio de emoção" },
+    { start: 178, end: 184, text: "Por este seu lindo dia de celebração." },
+    { start: 187, end: 190, text: "Feliz aniversário," },
+    { start: 191, end: 193, text: "Nosso pai querido," },
+    { start: 194, end: 199, text: "A esse torcedor do Papão tão destemido." },
+    { start: 201, end: 206, text: "Ao melhor vovô do mundo, te desejamos" },
+    { start: 207, end: 210, text: "Tudo que o seu coração almeja," },
+    { start: 211, end: 214, text: "Que assim o seja." },
+    { start: 215, end: 220, text: "Nós te amamos!" }
+  ];
+
+  audio.addEventListener("timeupdate", () => {
+    const t = audio.currentTime;
+    // Find the line that matches the current time
+    const activeLine = lines.find(line => t >= line.start && t < line.end);
+
+    if (activeLine) {
+      // Only update if the text is different to prevent flickering
+      if (lyrics.textContent !== activeLine.text) {
+        lyrics.textContent = activeLine.text;
+        lyrics.style.opacity = 1;
+      }
+    } else {
+      lyrics.style.opacity = 0;
+      // Optional: Clear text after fade out
+      setTimeout(() => { if(lyrics.style.opacity == 0) lyrics.textContent = ""; }, 500);
+    }
+  });
+  </script>
+
+</body>
+</html>
