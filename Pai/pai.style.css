@@ -1,5 +1,5 @@
 /* =========================
-   BACKGROUND
+   1. BACKGROUND & LAYOUT
 ========================= */
 body {
     margin: 0;
@@ -8,10 +8,11 @@ body {
     font-family: 'Playfair Display', serif;
     overflow-x: hidden;
     position: relative;
+    padding-bottom: 80px; /* Space for the "Return to Top" button */
 }
 
 /* =========================
-   BALLOONS
+   2. BALLOONS (Restored Spacing)
 ========================= */
 .balloons {
     position: fixed;
@@ -20,7 +21,7 @@ body {
     pointer-events: none;
     top: 0;
     left: 0;
-    z-index: 5; /* ABOVE book */
+    z-index: 5;
 }
 
 .balloon {
@@ -43,25 +44,21 @@ body {
     top: 80px;
 }
 
-.b1 { left: 5%; background: #dd2e37; }
-.b2 { left: 20%; background: #ffbe0b; }
-.b3 { left: 40%; background: #08836d; }
-.b4 { left: 60%; background: #7293c0; }
-.b5 { left: 80%; background: #fb5607; }
-.b6 { left: 50%; background: #4e7504; }
+/* Original spread restored */
+.b1 { left: 5%; background: #dd2e37; animation-delay: 0s; }
+.b2 { left: 20%; background: #ffbe0b; animation-delay: 2s; }
+.b3 { left: 40%; background: #08836d; animation-delay: 4s; }
+.b4 { left: 60%; background: #7293c0; animation-delay: 1s; }
+.b5 { left: 80%; background: #fb5607; animation-delay: 3s; }
+.b6 { left: 50%; background: #4e7504; animation-delay: 5s; }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-120vh);
-    }
-
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
 }
 
 /* =========================
-   BOOK CONTAINER
+   3. PHOTO & BOOK CONTAINER
 ========================= */
 .book {
     display: flex;
@@ -70,12 +67,9 @@ body {
     position: relative;
     max-width: 95%;
     margin: 20px auto;
-    z-index: 1; /* below balloons */
+    z-index: 1;
 }
 
-/* =========================
-   PHOTO
-========================= */
 .photo-container {
     text-align: center;
     margin-bottom: 25px;
@@ -91,40 +85,66 @@ body {
 }
 
 /* =========================
-   AUDIO SECTION (Updated)
+   4. AUDIO & LYRICS (Fixed Mobile Fit)
 ========================= */
 .audio-container {
     text-align: center;
-    margin: 25px 0;
-    background: rgba(16, 136, 222, 0.9); /* semi-transparent white for visibility */
-    padding: 15px 20px;                   /* space around the player */
-    border-radius: 15px;                   /* match page style */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* subtle shadow */
-    padding-bottom: 40px; /* Adds extra room for the scaled-up player */
-    overflow: visible;     /* Ensures the player isn't cut off */
+    margin: 25px auto;
+    background: rgba(16, 136, 222, 0.95); /* Paysandu Blue */
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    width: 92%;
+    max-width: 550px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Audio message text */
 .audio-message {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(40,40,40,0.8);
-    margin-bottom: 12px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    margin-bottom: 20px;
 }
 
-/* Audio player */
-#audio-player, #birthday-song {
-    width: 90%;
-    max-width: 420px;
-    transform: scale(1.2); /* larger on mobile */
-    margin: 10px auto;     /* center horizontally */
+#birthday-song {
+    width: 100%;           
+    height: 54px;          
     display: block;
-    border-radius: 12px;
+    margin: 10px auto;
+    border-radius: 30px;
+    outline: none;
+}
+
+#lyrics {
+    width: 100%;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #ffffff;
+    min-height: 140px;     
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+#lyrics.active {
+    opacity: 1;
+    transform: scale(1.05);
+    color: #00d2ff;        
+    text-shadow: 0px 0px 15px rgba(0, 210, 255, 0.6), 2px 2px 5px #000;
 }
 
 /* =========================
-   PAGE
+   5. MESSAGE PAGES
 ========================= */
 .page {
     width: 100%;
@@ -136,89 +156,78 @@ body {
     box-sizing: border-box;
 }
 
-/* Page content */
 .page-content {
     max-width: 600px;
     margin: auto;
 }
 
-/* =========================
-   TITLE
-========================= */
 h1 {
     font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-/* =========================
-   MESSAGES
-========================= */
-.messages {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    margin-bottom: 25px;
+    color: #095188;
 }
 
 .message {
     background: #fff6e8;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-    border-left: 5px solid #766202;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    border-left: 6px solid #095188;
+    margin-bottom: 20px;
 }
 
 .message p {
     margin: 0;
     line-height: 1.6;
     font-size: 1.2rem;
-    color: #3a1d01;
+    color: #1a1a1a;
 }
 
-/* =========================
-   SIGNATURE (Dark Purple)
-========================= */
 .message .signature {
-    margin-top: 8px;
+    margin-top: 12px;
     text-align: right;
     font-family: 'Dancing Script', cursive;
-    font-size: 1rem;
-    color: #095188; /* deep elegant purple */
+    font-size: 1.3rem; 
+    font-weight: 600;
+    color: #095188;
 }
 
 /* =========================
-   MOBILE OPTIMIZATION
+   6. MOBILE OPTIMIZATION
 ========================= */
 @media (max-width: 600px) {
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    .photo-container img {
-        width: 140px;
-        height: 140px;
-    }
-
-    .message p {
-        font-size: 1.3rem;
-    }
-
-    .message .signature {
-        font-size: 1.1rem;
+    .audio-container {
+        width: 95%;
+        padding: 20px 15px;
     }
 
     .audio-message {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
-}
-@media (max-width: 600px) {
+
+    #birthday-song {
+        height: 58px; 
+    }
+
+    #lyrics {
+        font-size: 1.6rem !important; 
+        min-height: 110px !important;
+        margin-top: 20px;
+    }
+
+    .message .signature {
+        font-size: 1.5rem !important; 
+        font-weight: 700 !important;
+        text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.1);
+    }
 
     .balloon {
         width: 50px;
         height: 70px;
     }
 
+    /* Restored unique mobile left-alignments for balloons */
     .b1 { left: 3%; }
     .b2 { left: 18%; }
     .b3 { left: 33%; }
@@ -226,65 +235,14 @@ h1 {
     .b5 { left: 75%; }
     .b6 { left: 90%; }
 
-}
-@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; }
 
-    /* Audio player */
-    #birthday-song {
-        width: 90%;           /* smaller than full width */
-        max-width: 420px;
-        transform: scale(1.2);
-        margin: 10px auto;    /* centers horizontally */
-        display: block;       /* needed for margin auto to work */
+    .photo-container img {
+        width: 140px;
+        height: 140px;
     }
 
-    /* Audio container spacing */
-    .audio-container {
-        padding: 0 10px;      /* space from page edges */
-        text-align: center;
-    }
-}
-
-/* =========================
-   LYRICS (Optimized for Readability)
-========================= */
-#lyrics {
-    font-size: 2.5rem !important; /* Forces the large size */
-    font-weight: 900 !important;
-    color: #ffffff !important;
-    min-height: 150px !important; /* More space for two-line lyrics */
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1.2;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
-    transition: all 0.4s ease;
-    opacity: 0;
-}
-
-#lyrics.active {
-    opacity: 1 !important;
-    transform: scale(1.1);
-    color: #00d2ff !important; /* Paysandu Blue */
-}
-
-/* State when the line is being sung */
-#lyrics.active {
-    opacity: 1;
-    transform: scale(1.05);
-    /* Paysandu Blue glow or Gold */
-    color: #00d2ff; 
-    text-shadow: 0px 0px 20px rgba(0, 210, 255, 0.8), 
-                 2px 2px 4px rgba(0, 0, 0, 1);
-}
-
-/* Specific Mobile Fix for Lyrics */
-@media (max-width: 600px) {
-    #lyrics {
-        font-size: 1.8rem; /* Scales down slightly for small screens */
-        min-height: 100px;
-        margin-top: 40px; /* Gives more space for the scaled audio player */
+    .message p {
+        font-size: 1.15rem;
     }
 }
